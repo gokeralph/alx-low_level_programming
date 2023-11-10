@@ -4,24 +4,17 @@
  * @h: head of list
  * Return: size_t value
  */
-typedef struct dlistint_s
+size_t print_dlistint(const dlistint_t *h)
 {
-	int n;
-	struct dlistint_s *prev;
-	struct dlistint_s *next;
-	}
-	dlistint_t;
+	const dlistint_t *tmp;
+	int count = 0;
 
-	size_t print_dlistint(const dlistint_t *h)
+	tmp = h;
+	while (tmp != NULL)
 	{
-	size_t node_count = 0;
-
-	while (h != NULL)
-	{
-	printf("%d\n", h->n);
-	h = h->next;
-	node_count++;
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
+		count++;
 	}
-
-	return (node_count);
+	return (count);
 }
